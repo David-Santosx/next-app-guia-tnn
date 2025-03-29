@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import AppHeader from "./components/Header";
+import { SessionAuthProvider } from "@/providers/session-provider";
 
 const poppins = Poppins({
-  variable: "--font-geist-sans",
+  variable: "--font-poppins",
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
@@ -20,12 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body className={`${poppins.variable} antialiased`}>
-        <AppHeader />
-        <div className="px-4 sm:px-6 md:px-8 lg:px-16 min-w-screen">
-          {children}
-        </div>
+    <html lang="pt-br" suppressHydrationWarning>
+      <body className={`${poppins.variable} font-sans antialiased`}>
+        <SessionAuthProvider>{children}</SessionAuthProvider>
       </body>
     </html>
   );
