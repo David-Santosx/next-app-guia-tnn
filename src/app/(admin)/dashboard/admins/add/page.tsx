@@ -95,13 +95,13 @@ export default function AddAdminPage() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="space-y-6">
       <div className="flex flex-col space-y-2">
         <h1 className="text-2xl font-bold text-white">Adicionar Administrador</h1>
         <p className="text-slate-400">Crie uma nova conta de administrador para o sistema</p>
       </div>
 
-      <div className="flex items-center space-x-2 mb-4">
+      <div className="flex items-center mb-4">
         <Link href="/dashboard/admins">
           <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-100 hover:bg-slate-800">
             <ArrowLeft className="h-4 w-4" />
@@ -222,33 +222,31 @@ export default function AddAdminPage() {
                 />
               </div>
 
-              <div className="flex justify-end pt-4 border-t border-slate-800 mt-8">
-                <div className="flex gap-3">
-                  <Link href="/dashboard/admins">
-                    <Button 
-                      type="button" 
-                      variant="outline"
-                      className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white"
-                      disabled={isSubmitting}
-                    >
-                      Cancelar
-                    </Button>
-                  </Link>
+              <div className="flex flex-col sm:flex-row sm:justify-end gap-3 pt-4 border-t border-slate-800 mt-8">
+                <Link href="/dashboard/admins" className="w-full sm:w-auto">
                   <Button 
-                    type="submit" 
-                    className="bg-slate-700 hover:bg-slate-600 text-white"
+                    type="button" 
+                    variant="outline"
+                    className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white w-full sm:w-auto"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Criando...
-                      </>
-                    ) : (
-                      "Criar Administrador"
-                    )}
+                    Cancelar
                   </Button>
-                </div>
+                </Link>
+                <Button 
+                  type="submit" 
+                  className="bg-slate-700 hover:bg-slate-600 text-white w-full sm:w-auto"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Criando...
+                    </>
+                  ) : (
+                    "Criar Administrador"
+                  )}
+                </Button>
               </div>
             </form>
           </Form>

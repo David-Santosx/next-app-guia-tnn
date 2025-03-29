@@ -117,13 +117,13 @@ export default function AdminsPage() {
   }
 
   return (
-    <div className="p-6 space-y-6 w-full">
+    <div className="space-y-6">
       <div className="flex flex-col space-y-2">
         <h1 className="text-2xl font-bold text-white">Administradores</h1>
         <p className="text-slate-400">Lista de todos os administradores do sistema e suas informações de criação</p>
       </div>
 
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
         <Link href="/dashboard">
           <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-slate-100 hover:bg-slate-800">
             <ArrowLeft className="h-4 w-4" />
@@ -131,13 +131,13 @@ export default function AdminsPage() {
         </Link>
         
         <Link href="/dashboard/admins/add">
-          <Button className="bg-slate-700 hover:bg-slate-600 text-white">
+          <Button className="bg-slate-700 hover:bg-slate-600 text-white w-full sm:w-auto">
             Adicionar Administrador
           </Button>
         </Link>
       </div>
 
-      <Card className="bg-slate-900 border-slate-800 w-full">
+      <Card className="bg-slate-900 border-slate-800 w-full overflow-hidden">
         <CardHeader>
           <CardTitle className="text-white">Administradores</CardTitle>
           <CardDescription className="text-slate-400">

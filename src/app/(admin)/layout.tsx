@@ -17,7 +17,9 @@ export default function DashboardLayout({
             <SidebarTrigger className="h-8 w-8 text-slate-400 hover:text-slate-100 hover:bg-slate-800 rounded-md mr-4" />
             <h2 className="text-lg font-medium text-white">Dashboard</h2>
           </div>
-          <div className="w-full max-w-[80%] mx-auto py-4">{children}</div>
+          <div className="w-full px-4 sm:px-6 md:px-8 lg:max-w-[90%] xl:max-w-[80%] mx-auto py-4">
+            {children}
+          </div>
         </main>
       </SidebarProvider>
     </ThemeProvider>
