@@ -1,5 +1,5 @@
 "use client"
-import { Users, UserPlus, UserCheck, ChevronDown, LayoutDashboard, User } from "lucide-react";
+import { Users, UserPlus, UserCheck, ChevronDown, LayoutDashboard, User, Image, ImagePlus } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
@@ -101,6 +101,40 @@ export function DashboardSidebar() {
                         >
                           <UserPlus className="h-4 w-4 mr-2 text-slate-500" />
                           <span>Adicionar administradores</span>
+                        </Link>
+                      </SidebarMenuSubItem>
+                    </SidebarMenuSub>
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+              
+              <Collapsible className="group/collapsible">
+                <SidebarMenuItem className="my-1">
+                  <CollapsibleTrigger asChild>
+                    <SidebarMenuButton className="w-full bg-transparent hover:bg-slate-800 transition-colors text-slate-300 py-2.5">
+                      <Image className="h-4 w-4 mr-2 text-slate-400" />
+                      <span>Fotos</span>
+                      <ChevronDown className="h-4 w-4 ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-180 text-slate-500" />
+                    </SidebarMenuButton>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <SidebarMenuSub className="bg-slate-900 space-y-1 mt-1 py-1">
+                      <SidebarMenuSubItem className="py-1">
+                        <Link
+                          className="flex items-center pl-6 text-sm text-slate-400 hover:text-slate-200 transition-colors py-2"
+                          href="/dashboard/fotos"
+                        >
+                          <Image className="h-4 w-4 mr-2 text-slate-500" />
+                          <span>Listar fotos</span>
+                        </Link>
+                      </SidebarMenuSubItem>
+                      <SidebarMenuSubItem className="py-1">
+                        <Link
+                          className="flex items-center pl-6 text-sm text-slate-400 hover:text-slate-200 transition-colors py-2"
+                          href="/dashboard/fotos/add"
+                        >
+                          <ImagePlus className="h-4 w-4 mr-2 text-slate-500" />
+                          <span>Adicionar fotos</span>
                         </Link>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>

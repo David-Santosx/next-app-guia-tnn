@@ -179,6 +179,24 @@ function Header() {
   );
 }
 
+function AdBanner() {
+  return (
+    <div className="w-full flex justify-center py-2 md:py-4">
+      <div className="w-full max-w-[728px] h-auto px-4 md:px-0">
+        <div className="relative w-full" style={{ aspectRatio: '728/90' }}>
+          <Image 
+            src="https://fakeimg.pl/728x90?text=Publicidade&font=bebas"
+            alt="Publicidade"
+            fill
+            sizes="(max-width: 768px) 100vw, 728px"
+            className="rounded-md object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function AppHeader() {
   return (
     <>
@@ -187,6 +205,8 @@ export default function AppHeader() {
         <Header />
       </header>
       <Separator />
+      <AdBanner />
+      <Separator className="mt-2" />
     </>
   );
 }

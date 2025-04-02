@@ -20,6 +20,7 @@ model User {
   updatedAt     DateTime         @updatedAt
   accounts      Account[]
   sessions      Session[]
+  photos        Photo[]
   creationInfo  UserCreationInfo?
 }
 
@@ -46,10 +47,32 @@ model AdminCreationLog {
   operatingSystem String
   device          String
   origin          String
-  status          String   // SUCCESS, FAILED
-  reason          String?  // Reason for failure if applicable
-  userId          String?  // Only set if successful
+  status          String   
+  reason          String? 
+  userId          String?
   createdAt       DateTime @default(now())
+}
+
+model Photo {
+  id            String    @id @default(cuid())
+  title         String
+  description   String?
+  location      String?
+  url           String
+  blobKey       String
+  size          Int
+  mimeType      String
+  dateTaken     DateTime?
+  photographer  String?   // Add this field
+  uploadedAt    DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  uploadedById  String
+  category      String    @default("general")
+  isPublished   Boolean   @default(true)
+  uploadedBy    User      @relation(fields: [uploadedById], references: [id])
+
+  @@index([category])
+  @@index([uploadedById])
 }
 
 model Account {
@@ -86,3 +109,4 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
