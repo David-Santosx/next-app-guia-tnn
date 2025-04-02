@@ -147,7 +147,7 @@ export default function Home() {
       <div className="w-full md:w-3/4">
         <HomeSection />
       </div>
-      <div className="w-full md:w-1/4 space-y-5 flex flex-col items-center justify-start border p-3 rounded-md mx-4 md:mx-0">
+      <div className="w-full md:w-1/4 space-y-5 flex flex-col items-center justify-start border p-3 rounded-md mx-auto md:mx-0 max-w-[90%] md:max-w-full">
         <FormSuggestion />
         <SlideAdRectangular />
       </div>
